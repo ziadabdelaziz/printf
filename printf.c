@@ -8,7 +8,6 @@
 int _printf(const char *format, ...)
 {
 	int cnt, i, j;
-	char c;
 	char *str;
 	va_list types;
 
@@ -21,22 +20,15 @@ int _printf(const char *format, ...)
 			switch(format[i + 1])
 			{
 				case 'c':
-					c = va_arg(types, char);
-					if (c == NULL || c == '')
-						cnt--;
-					else
-						putchar(c);
+					putchar(va_arg(types, int));
 					i++;
 					break;
 
 				case 's':
 					str = va_arg(types, char *);
-					if (str == NULL || str == "")
-					{
-						i++;
-						cnt--;
-						break;
-					}
+					if (str == NULL)
+						return (-1);
+
 					for (j = 0; str[j] != '\0'; j++)
 					{
 						putchar(str[j]);
