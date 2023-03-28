@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = va_arg(types, char);
-					if (c == NULL || c = '')
+					if (c == NULL || c == '')
 						cnt--;
 					else
 						putchar(c);
