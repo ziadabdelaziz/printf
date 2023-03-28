@@ -31,8 +31,9 @@ int _printf(const char *format, ...)
 
 				case 's':
 					str = va_arg(types, char *);
-					if (str == NULL || str == '')
+					if (str == NULL || str == "")
 					{
+						i++;
 						cnt--;
 						break;
 					}
