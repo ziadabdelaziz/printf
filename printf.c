@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 			switch(format[i + 1])
 			{
 				case 'c':
-					putchar(va_arg(types, char));
+					putchar(va_arg(types, int));
 					i++;
 					break;
 
