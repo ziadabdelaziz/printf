@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	cnt = 0;
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			switch(format[i + 1])
 			{
@@ -31,6 +31,7 @@ int _printf(const char *format, ...)
 						putchar(str[j]);
 						cnt++;
 					}
+					cnt--;
 					i++;
 					break;
 
