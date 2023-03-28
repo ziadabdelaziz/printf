@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			switch(format[i + 1])
 			{
 				case 'c':
-					c = va_arg(types, int);
+					c = va_arg(types, char);
 					if (c == NULL || c = '')
 						cnt--;
 					else
