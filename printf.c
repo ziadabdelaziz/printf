@@ -38,6 +38,18 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 
+				case 'd':
+				case 'i':
+					str = _sprintf(va_arg(types, int));
+					for (j = 0; str[j] != '\0'; j++)
+					{
+						putchar(str[j]);
+						cnt++;
+					}
+					cnt--;
+					i++;
+					break;
+
 				default:
 					putchar(format[i]);
 			}
