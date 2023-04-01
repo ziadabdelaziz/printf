@@ -50,6 +50,11 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 
+				case '%':
+					putchar(format[i]);
+					putchar(format[i+1]);
+					i++;
+
 				default:
 					putchar(format[i]);
 			}
