@@ -5,42 +5,36 @@
 * @num: integer
 * Return: converted string
 */
-char *_sprintf(int num)
+int print_int(va_list arguments, char *buf, unsigned int ibuf)
 {
-	char *str;
-	int i, cnt, j;
-	int negative;
+	int int_input;
+	unsigned int int_in, int_temp, i, div, isneg;
 
-	if (num == 0)
-		return ("0");
-
-	negative = 0;
-	if (num < 0)
+	int_input = va_arg(arguments, int);
+	isneg = 0;
+	if (int_input < 0)
 	{
-		num *= -1;
-		negative = 1;
+		int_in = int_input * -1;
+		ibuf = handl_buf(buf, '-', ibuf);
+		isneg = 1;
 	}
-
-	cnt = 0;
-	for (i = 0; _pow(10, i) <= num; i++)
-		cnt++;
-	if (negative == 1)
-		str = malloc(cnt + 1);
 	else
-		str = malloc(cnt);
-	if (str == NULL)
-		return (NULL);
-
-	j = 0;
-	if (negative == 1)
 	{
-		str[0] = '-';
- 		j++;
+		int_in = int_input;
 	}
-	for (i = cnt; i > 0; i--, j++)
-		str[j] = (num % _pow(10, i) / _pow(10, i - 1)) + 48;
 
-	str[j] = '\0';
+	int_temp = int_in;
+	div = 1;
 
-	return (str);
+	while (int_temp > 9)
+	{
+		div *= 10;
+		int_temp /= 10;
+	}
+
+	for (i = 0; div > 0; div /= 10, i++)
+	{
+		ibuf = handl_buf(buf, ((int_in / div) % 10) + '0', ibuf);
+	}
+	return (i + isneg);
 }
