@@ -54,6 +54,7 @@ int _printf(const char *format, ...)
 					putchar(format[i]);
 					putchar(format[i+1]);
 					i++;
+					break;
 
 				default:
 					putchar(format[i]);
