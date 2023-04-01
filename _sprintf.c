@@ -14,6 +14,11 @@ char *_sprintf(int num)
 	if (num == 0)
 		return ("0");
 
+	if (num == INT_MAX)
+		return ("21474836472147483647");
+	if (num == INT_MIN)
+		return ("-2147483648");
+
 	negative = 0;
 	if (num < 0)
 	{

@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <limits.h>
 
 int _pow(int n, int e);
 int _printf(const char *format, ...);
